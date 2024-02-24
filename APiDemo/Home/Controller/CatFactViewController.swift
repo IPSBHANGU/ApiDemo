@@ -1,61 +1,50 @@
-//
-//  CatFactViewController.swift
-//  APiDemo
-//
-//  Created by Inderpreet Singh on 23/02/24.
-//
-
 import UIKit
 
 class CatFactViewController: UIViewController {
 
-    // call Model
     let model = ApiModel()
-    let url = "https://catfact.ninja/fact"
-    var dataFromAPI: [String: Any] = [:]
+    let apiUrl = "https://catfact.ninja/fact"
+    var dataFromAPI = [CatModel]()
+
+    var fact = "waiting for API Data"
+    var counter:Int = 0
+    
+    @IBOutlet weak var factLable: UILabel!
+    @IBOutlet weak var apiHitCounter: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(refreshLable), userInfo: nil, repeats: true)
+        timer.fire()
+    }
 
+    @objc func refreshLable() {
+        apiHitCounter.text = "\(counter)"
+        // api updates the fact with new one whenever its hit
+        // displaying a static api doesnt make us cool
+        // we already have timer func lets utilize it to update fact every 2
+        // seconds
         fetchDatafromAPI()
-        addDataLabels()
+        factLable.text = fact
+    }
 
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        addDataLabels()
-    }
-    
     func fetchDatafromAPI() {
-        model.hitAPI(url: url) { isSucceeded, data, error in
+        model.convertCatModelData(url: apiUrl) { isSucceeded, data, error in
             if isSucceeded {
-                //self.dataFromAPI = data
-                print(data)
+                self.dataFromAPI = data
+                self.counter = self.counter + 1
+                self.fact = self.dataFromAPI[0].fact ?? ""
             } else if let error = error {
-                self.alertUser(title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
+                self.alertUser(title: "Error", message: "Error getting data from API: \(error)")
             }
         }
     }
-
-    func addDataLabels() {
-        var labelYPosition: CGFloat = 100
-        for (key, value) in dataFromAPI {
-            let label = UILabel(frame: CGRect(x: 20, y: labelYPosition, width: 250, height: 30))
-            print("\(key ) \(value)")
-            label.text = "\(key): \(value)"
-            self.view.addSubview(label)
-            labelYPosition += 40
-        }
-    }
+    
 
     func alertUser(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
         let okay = UIAlertAction(title: "Okay", style: .default)
         alert.addAction(okay)
         self.present(alert, animated: true)
     }
-
 }

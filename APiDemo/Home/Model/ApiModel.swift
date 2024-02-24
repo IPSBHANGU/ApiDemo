@@ -22,6 +22,11 @@ struct EntryObject:Codable {
     var Category:String
 }
 
+struct CatModel:Codable{
+    var fact:String?
+    var length:Int?
+}
+
 class ApiModel: NSObject {
     func hitAPI(url: String, completionHandler: @escaping(_ isSucceeded: Bool, _ data:Data, _ error: String?)->()) {
         let apiUrl = URL(string: url)
@@ -62,4 +67,20 @@ class ApiModel: NSObject {
         }
     }
 
+    func convertCatModelData(url:String, completionHandler: @escaping(_ isSucceeded: Bool, _ data:[CatModel], _ error: String?)->()) {
+        hitAPI(url: url) { isSucceeded, data, error in
+            if isSucceeded {
+                do {
+                    let decorder = JSONDecoder()
+                    let usableData = try decorder.decode(CatModel.self, from: data)
+                    completionHandler(true, [usableData], "")
+                } catch {
+                    print(error.localizedDescription)
+                }
+            } else if let error = error {
+                var emptyCatModel:[CatModel]?
+                completionHandler(false, emptyCatModel!, "\(error)")
+            }
+        }
+    }
 }
