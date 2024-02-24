@@ -20,6 +20,11 @@ class HomeViewController: UIViewController {
         navigationController?.pushViewController(catFactView, animated: true)
     }
     
+    
+    @IBAction func dogImageAction(_ sender: Any) {
+        let dogImageView = DogImageViewController()
+        navigationController?.pushViewController(dogImageView, animated: true)
+    }
     /*
     // MARK: - Navigation
 

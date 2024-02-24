@@ -27,8 +27,13 @@ struct CatModel:Codable{
     var length:Int?
 }
 
+struct DogModel:Codable{
+    var message:String?
+    var status:String?
+}
+
 class ApiModel: NSObject {
-    func hitAPI(url: String, completionHandler: @escaping(_ isSucceeded: Bool, _ data:Data, _ error: String?)->()) {
+    func getData(url: String, completionHandler: @escaping(_ isSucceeded: Bool, _ data:Data, _ error: String?)->()) {
         let apiUrl = URL(string: url)
         var apiUrlRequest = URLRequest(url: apiUrl!)
         apiUrlRequest.httpMethod = "GET"
@@ -50,7 +55,7 @@ class ApiModel: NSObject {
     }
     
     func convertPublicData(url:String, completionHandler: @escaping(_ isSucceeded: Bool, _ data:[EntryObject], _ error: String?)->()) {
-        hitAPI(url: url) { isSucceeded, data, error in
+        getData(url: url) { isSucceeded, data, error in
             if isSucceeded {
                 do {
                     let decorder = JSONDecoder()
@@ -66,9 +71,9 @@ class ApiModel: NSObject {
             }
         }
     }
-
+    
     func convertCatModelData(url:String, completionHandler: @escaping(_ isSucceeded: Bool, _ data:[CatModel], _ error: String?)->()) {
-        hitAPI(url: url) { isSucceeded, data, error in
+        getData(url: url) { isSucceeded, data, error in
             if isSucceeded {
                 do {
                     let decorder = JSONDecoder()
@@ -83,4 +88,35 @@ class ApiModel: NSObject {
             }
         }
     }
+    
+    func convertDogModelData(url:String, completionHandler: @escaping(_ isSucceeded: Bool, _ data:UIImage, _ error: String?)->()) {
+        // Fetch API Data
+        getData(url: url) { isSucceeded, data, error in
+            if isSucceeded {
+                do {
+                    let decorder = JSONDecoder()
+                    let usableData = try decorder.decode(DogModel.self, from: data)
+                    // we have Data and now use getData Function to get Image from url
+                    guard let imageUrl = usableData.message else {return}
+                    self.getData(url: imageUrl) { isSucceeded, data, error in
+                        if isSucceeded {
+                            if let image = UIImage(data: data) {
+                                completionHandler(true, image, "")
+                            }
+                        } else if let error = error {
+                            var emptyImage:UIImage?
+                            completionHandler(false, emptyImage!, "")
+                        }
+                    }
+                    
+                } catch {
+                    print(error.localizedDescription)
+                }
+            } else if error != nil {
+                var emptyImage:UIImage?
+                completionHandler(false, emptyImage!, "failed to get Data from API \(error?.localizedCapitalized ?? "")")
+            }
+        }
+    }
+    
 }
