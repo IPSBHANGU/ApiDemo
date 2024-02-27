@@ -35,6 +35,17 @@ class ProductsViewController: UIViewController {
         navigationController?.pushViewController(queryView, animated: true)
     }
     
+    
+    @IBAction func addAction(_ sender: Any) {
+        let addView = AddToAPIViewController()
+        navigationController?.pushViewController(addView, animated: true)
+    }
+    
+    @IBAction func updateAction(_ sender: Any) {
+        let updateView = UpdateViewController()
+        navigationController?.pushViewController(updateView, animated: true)
+    }
+    
     func alertUser(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         

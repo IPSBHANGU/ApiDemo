@@ -2,6 +2,8 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    // call model
+    let model = ProductsModel()
     var productDetail = [ProductsDetail]()
     
     override func viewDidLoad() {
@@ -10,7 +12,7 @@ class DetailViewController: UIViewController {
         addDataLabels()
         // Do any additional setup after loading the view.
     }
-
+    
     func addDataLabels() {
         var labelYPosition: CGFloat = 100
         
@@ -33,4 +35,24 @@ class DetailViewController: UIViewController {
         }
     }
 
+    @IBAction func deleteAction(_ sender: Any) {
+        let deleteID = productDetail.first?.id
+        model.deleteModelData(productID: deleteID ?? 0) { isSucceeded, data, error in
+            DispatchQueue.main.async {
+                if isSucceeded {
+                    self.alertUser(title: "Success", message: "Entry Delete Success!")
+                    self.navigationController?.popViewController(animated: true)
+                } else if let error = error {
+                    self.alertUser(title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
+                }
+            }
+        }
+    }
+    
+    func alertUser(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okay = UIAlertAction(title: "Okay", style: .default)
+        alert.addAction(okay)
+        self.present(alert, animated: true)
+    }
 }

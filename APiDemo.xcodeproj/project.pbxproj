@@ -17,6 +17,10 @@
 		FB37B3982B8CBD050023BB83 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB37B3962B8CBD050023BB83 /* DetailViewController.xib */; };
 		FB37B39B2B8DC5840023BB83 /* QueryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37B3992B8DC5840023BB83 /* QueryViewController.swift */; };
 		FB37B39C2B8DC5840023BB83 /* QueryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB37B39A2B8DC5840023BB83 /* QueryViewController.xib */; };
+		FB37B39F2B8DEE400023BB83 /* AddToAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37B39D2B8DEE400023BB83 /* AddToAPIViewController.swift */; };
+		FB37B3A02B8DEE400023BB83 /* AddToAPIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB37B39E2B8DEE400023BB83 /* AddToAPIViewController.xib */; };
+		FB37B3A32B8E08B00023BB83 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37B3A12B8E08B00023BB83 /* UpdateViewController.swift */; };
+		FB37B3A42B8E08B00023BB83 /* UpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB37B3A22B8E08B00023BB83 /* UpdateViewController.xib */; };
 		FBB2416A2B87328B0055A4E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB241692B87328B0055A4E5 /* AppDelegate.swift */; };
 		FBB2416C2B87328B0055A4E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2416B2B87328B0055A4E5 /* SceneDelegate.swift */; };
 		FBB2416E2B87328B0055A4E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB2416D2B87328B0055A4E5 /* ViewController.swift */; };
@@ -48,6 +52,10 @@
 		FB37B3962B8CBD050023BB83 /* DetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		FB37B3992B8DC5840023BB83 /* QueryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryViewController.swift; sourceTree = "<group>"; };
 		FB37B39A2B8DC5840023BB83 /* QueryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryViewController.xib; sourceTree = "<group>"; };
+		FB37B39D2B8DEE400023BB83 /* AddToAPIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToAPIViewController.swift; sourceTree = "<group>"; };
+		FB37B39E2B8DEE400023BB83 /* AddToAPIViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddToAPIViewController.xib; sourceTree = "<group>"; };
+		FB37B3A12B8E08B00023BB83 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
+		FB37B3A22B8E08B00023BB83 /* UpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateViewController.xib; sourceTree = "<group>"; };
 		FBB241662B87328B0055A4E5 /* APiDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APiDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBB241692B87328B0055A4E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBB2416B2B87328B0055A4E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -198,6 +206,8 @@
 				FB37B3902B8CAAC70023BB83 /* FetchAllTableViewCell.xib */,
 				FB37B3962B8CBD050023BB83 /* DetailViewController.xib */,
 				FB37B39A2B8DC5840023BB83 /* QueryViewController.xib */,
+				FB37B39E2B8DEE400023BB83 /* AddToAPIViewController.xib */,
+				FB37B3A22B8E08B00023BB83 /* UpdateViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -209,6 +219,8 @@
 				FBC104732B8CA7730007911F /* FetchAllViewController.swift */,
 				FB37B3952B8CBD050023BB83 /* DetailViewController.swift */,
 				FB37B3992B8DC5840023BB83 /* QueryViewController.swift */,
+				FB37B39D2B8DEE400023BB83 /* AddToAPIViewController.swift */,
+				FB37B3A12B8E08B00023BB83 /* UpdateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -278,10 +290,12 @@
 				FBB241712B87328B0055A4E5 /* Main.storyboard in Resources */,
 				FB37B3982B8CBD050023BB83 /* DetailViewController.xib in Resources */,
 				FBB241962B89E6790055A4E5 /* DogImageViewController.xib in Resources */,
+				FB37B3A42B8E08B00023BB83 /* UpdateViewController.xib in Resources */,
 				FBB2418C2B87653A0055A4E5 /* DataDetailsViewController.xib in Resources */,
 				FB37B3922B8CAAC70023BB83 /* FetchAllTableViewCell.xib in Resources */,
 				FB06F9DE2B8CA580006C7790 /* ProductsViewController.xib in Resources */,
 				FBB241902B889DE50055A4E5 /* CatFactViewController.xib in Resources */,
+				FB37B3A02B8DEE400023BB83 /* AddToAPIViewController.xib in Resources */,
 				FBC104762B8CA7730007911F /* FetchAllViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,6 +317,8 @@
 				FBB241922B889F070055A4E5 /* HomeViewController.swift in Sources */,
 				FBB2416E2B87328B0055A4E5 /* ViewController.swift in Sources */,
 				FB37B39B2B8DC5840023BB83 /* QueryViewController.swift in Sources */,
+				FB37B39F2B8DEE400023BB83 /* AddToAPIViewController.swift in Sources */,
+				FB37B3A32B8E08B00023BB83 /* UpdateViewController.swift in Sources */,
 				FBB2416A2B87328B0055A4E5 /* AppDelegate.swift in Sources */,
 				FBC104752B8CA7730007911F /* FetchAllViewController.swift in Sources */,
 				FBB2416C2B87328B0055A4E5 /* SceneDelegate.swift in Sources */,

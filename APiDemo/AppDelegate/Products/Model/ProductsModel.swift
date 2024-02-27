@@ -80,7 +80,7 @@ class ProductsModel: NSObject {
         // query parameters
         let queryParameters = ["q": search]
         
-        homeModel.getData(url: updatedURL, httpRequest: .POST, queryParameters: queryParameters) { isSucceeded, data, error in // Passing .POST as httpRequest
+        homeModel.getData(url: updatedURL, httpRequest: .GET, queryParameters: queryParameters) { isSucceeded, data, error in // Passing .POST as httpRequest
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
@@ -107,7 +107,7 @@ class ProductsModel: NSObject {
             "select": key
         ]
         
-        homeModel.getData(url: url, httpRequest: .GET, queryParameters: queryParameters) { isSucceeded, data, error in // Passing .POST as httpRequest
+        homeModel.getData(url: url, httpRequest: .GET, queryParameters: queryParameters) { isSucceeded, data, error in // Passing .GET as httpRequest
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
@@ -115,8 +115,6 @@ class ProductsModel: NSObject {
                     let entriesData = usableData.products
                     completionHandler(true, entriesData, nil)
                 } catch {
-
-
                     print(data!)
                     print(error.localizedDescription)
                     completionHandler(false, nil, error.localizedDescription)
@@ -127,7 +125,7 @@ class ProductsModel: NSObject {
         }
     }
     
-    func addPostModelData(key:String, keyValue:String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: [ProductsDetail]?, _ error: String?) -> ()) {
+    func addPostModelData(key:String, keyValue:String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: ProductsDetail?, _ error: String?) -> ()) {
         
         //  dictionary for the request body
         let parameters = [
@@ -136,19 +134,69 @@ class ProductsModel: NSObject {
         
         // update url
         var updatedURL = url
-        updatedURL = updatedURL + "/add/"
+        updatedURL = updatedURL + "/add"
         
-        homeModel.getData(url: url, httpRequest: .POST, queryParameters: parameters) { isSucceeded, data, error in // Passing .POST as httpRequest
+        homeModel.getData(url: updatedURL, httpRequest: .POST, queryParameters: parameters) { isSucceeded, data, error in // Passing .POST as httpRequest
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
-                    let usableData = try decoder.decode(Products.self, from: data!)
-                    let entriesData = usableData.products
+                    let usableData = try decoder.decode(ProductsDetail.self, from: data!)
+                    let entriesData = usableData
                     completionHandler(true, entriesData, nil)
                 } catch {
-
-
-                    print(data!)
+                    print(error.localizedDescription)
+                    completionHandler(false, nil, error.localizedDescription)
+                }
+            } else {
+                completionHandler(false, nil, error)
+            }
+        }
+    }
+    
+    func updatePostModelData(productID:Int, key:String, keyValue:String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: ProductsDetail?, _ error: String?) -> ()) {
+        
+        //  dictionary for the request body
+        let parameters = [
+            key: keyValue
+        ]
+        
+        // update url
+        var updatedURL = url
+        updatedURL = updatedURL + "/"
+        updatedURL = updatedURL + "\(productID)"
+        
+        homeModel.getData(url: updatedURL, httpRequest: .PUT, queryParameters: parameters) { isSucceeded, data, error in // Passing .PUT as httpRequest
+            if isSucceeded {
+                do {
+                    let decoder = JSONDecoder()
+                    let usableData = try decoder.decode(ProductsDetail.self, from: data!)
+                    let entriesData = usableData
+                    completionHandler(true, entriesData, nil)
+                } catch {
+                    print(error.localizedDescription)
+                    completionHandler(false, nil, error.localizedDescription)
+                }
+            } else {
+                completionHandler(false, nil, error)
+            }
+        }
+    }
+    
+    func deleteModelData(productID:Int, completionHandler: @escaping (_ isSucceeded: Bool, _ data: ProductsDetail?, _ error: String?) -> ()) {
+        
+        // update url
+        var updatedURL = url
+        updatedURL = updatedURL + "/"
+        updatedURL = updatedURL + "\(productID)"
+        
+        homeModel.getData(url: updatedURL, httpRequest: .DELETE) { isSucceeded, data, error in // Passing .DELETE as httpRequest
+            if isSucceeded {
+                do {
+                    let decoder = JSONDecoder()
+                    let usableData = try decoder.decode(ProductsDetail.self, from: data!)
+                    let entriesData = usableData
+                    completionHandler(true, entriesData, nil)
+                } catch {
                     print(error.localizedDescription)
                     completionHandler(false, nil, error.localizedDescription)
                 }

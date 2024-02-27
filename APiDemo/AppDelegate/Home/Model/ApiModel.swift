@@ -28,6 +28,7 @@ struct DogModel: Codable {
 enum httpRequest:String{
     case GET
     case POST
+    case PUT
     case DELETE
 }
 
@@ -40,12 +41,14 @@ class ApiModel: NSObject {
         }
         
         // Set query parameters if passed as arguement
-        if let queryParameters = queryParameters {
-            var queryItems = [URLQueryItem]()
-            for (key, value) in queryParameters {
-                queryItems.append(URLQueryItem(name: key, value: value))
+        if httpRequest == .GET {
+            if let queryParameters = queryParameters {
+                var queryItems = [URLQueryItem]()
+                for (key, value) in queryParameters {
+                    queryItems.append(URLQueryItem(name: key, value: value))
+                }
+                urlComponents.queryItems = queryItems
             }
-            urlComponents.queryItems = queryItems
         }
         
         guard let apiUrl = urlComponents.url else {
@@ -72,6 +75,20 @@ class ApiModel: NSObject {
             apiUrlRequest.httpBody = jsonData
         }
         
+        if httpRequest == .PUT {
+            apiUrlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            // Convert the dictionary to JSON data
+            guard let parameters = queryParameters else {return}
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: parameters) else {
+                print("Failed to serialize JSON data")
+                return
+            }
+            
+            // Set the request body
+            apiUrlRequest.httpBody = jsonData
+        }
+        
         print(apiUrlRequest)
         
         let task = URLSession.shared.dataTask(with: apiUrlRequest) { data, response, error in
@@ -79,6 +96,12 @@ class ApiModel: NSObject {
                 let emptyApiData = Data()
                 print("Error while url session \(error)")
                 completionHandler(false, emptyApiData, "\(error)")
+                return
+            }
+            
+            // Check for internet Connectivity give exist if no internet
+            guard let response = response as? HTTPURLResponse, (200 ..< 299) ~= response.statusCode else {
+                completionHandler(false, nil, "No Internet Connection")
                 return
             }
             

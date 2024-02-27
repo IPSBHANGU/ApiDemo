@@ -44,17 +44,41 @@
                         <action selector="queryAction:" destination="-1" eventType="touchUpInside" id="C62-ou-Kxo"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nf7-qb-tgL">
+                    <rect key="frame" x="100" y="385" width="193" height="35"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="add"/>
+                    <connections>
+                        <action selector="addAction:" destination="-1" eventType="touchUpInside" id="hFs-iE-rvv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NeU-Vr-xQT">
+                    <rect key="frame" x="100" y="470" width="193" height="35"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="update"/>
+                    <connections>
+                        <action selector="updateAction:" destination="-1" eventType="touchUpInside" id="sDb-NC-LzQ"/>
+                    </connections>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0ii-Cc-dNS" secondAttribute="trailing" constant="100" id="5Ya-rg-9bp"/>
                 <constraint firstAttribute="trailing" secondItem="6ed-kf-n7y" secondAttribute="trailing" constant="23" id="5oH-dl-aje"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NeU-Vr-xQT" secondAttribute="trailing" constant="100" id="7CS-4A-vmx"/>
                 <constraint firstItem="6ed-kf-n7y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="7Ml-oH-s1A"/>
                 <constraint firstItem="o5m-eX-FfE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="7fW-c5-2ls"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Nf7-qb-tgL" secondAttribute="trailing" constant="100" id="9AY-N2-klh"/>
+                <constraint firstItem="Nf7-qb-tgL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="E74-U9-ERa"/>
                 <constraint firstItem="o5m-eX-FfE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="EFg-uN-U8s"/>
                 <constraint firstItem="0ii-Cc-dNS" firstAttribute="top" secondItem="6ed-kf-n7y" secondAttribute="bottom" constant="50" id="K6t-Pq-wlS"/>
                 <constraint firstItem="6ed-kf-n7y" firstAttribute="top" secondItem="o5m-eX-FfE" secondAttribute="bottom" constant="50" id="Saf-wA-4s9"/>
+                <constraint firstItem="Nf7-qb-tgL" firstAttribute="top" secondItem="0ii-Cc-dNS" secondAttribute="bottom" constant="50" id="aPU-yh-Rix"/>
+                <constraint firstItem="NeU-Vr-xQT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="ady-QP-fEC"/>
+                <constraint firstItem="NeU-Vr-xQT" firstAttribute="top" secondItem="Nf7-qb-tgL" secondAttribute="bottom" constant="50" id="owZ-IZ-9BM"/>
                 <constraint firstItem="0ii-Cc-dNS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="y76-2f-0eH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="o5m-eX-FfE" secondAttribute="trailing" constant="100" id="ygu-B6-SFS"/>
             </constraints>
