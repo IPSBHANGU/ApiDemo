@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProductsViewController" customModule="APiDemo" customModuleProvider="target">
+            <connections>
+                <outlet property="serachBar" destination="6ed-kf-n7y" id="hXh-A6-Xa9"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6ed-kf-n7y">
+                    <rect key="frame" x="24" y="194" width="346" height="56"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="GO5-2r-pqa"/>
+                    </connections>
+                </searchBar>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o5m-eX-FfE">
+                    <rect key="frame" x="100" y="109" width="193" height="35"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Fetch All"/>
+                    <connections>
+                        <action selector="fetchAllAction:" destination="-1" eventType="touchUpInside" id="7o6-He-otN"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ii-Cc-dNS">
+                    <rect key="frame" x="100" y="300" width="193" height="35"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" title="Button"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Query"/>
+                    <connections>
+                        <action selector="queryAction:" destination="-1" eventType="touchUpInside" id="C62-ou-Kxo"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0ii-Cc-dNS" secondAttribute="trailing" constant="100" id="5Ya-rg-9bp"/>
+                <constraint firstAttribute="trailing" secondItem="6ed-kf-n7y" secondAttribute="trailing" constant="23" id="5oH-dl-aje"/>
+                <constraint firstItem="6ed-kf-n7y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="7Ml-oH-s1A"/>
+                <constraint firstItem="o5m-eX-FfE" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="7fW-c5-2ls"/>
+                <constraint firstItem="o5m-eX-FfE" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="EFg-uN-U8s"/>
+                <constraint firstItem="0ii-Cc-dNS" firstAttribute="top" secondItem="6ed-kf-n7y" secondAttribute="bottom" constant="50" id="K6t-Pq-wlS"/>
+                <constraint firstItem="6ed-kf-n7y" firstAttribute="top" secondItem="o5m-eX-FfE" secondAttribute="bottom" constant="50" id="Saf-wA-4s9"/>
+                <constraint firstItem="0ii-Cc-dNS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="y76-2f-0eH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="o5m-eX-FfE" secondAttribute="trailing" constant="100" id="ygu-B6-SFS"/>
+            </constraints>
+            <point key="canvasLocation" x="63" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
