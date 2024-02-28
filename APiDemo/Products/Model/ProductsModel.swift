@@ -27,11 +27,8 @@ struct ProductsDetail:Codable {
 
 class ProductsModel: NSObject {
     
-    // url
-    let url = "https://dummyjson.com/products"
-    
     func convertProductsModelData(completionHandler: @escaping (_ isSucceeded: Bool, _ data: [ProductsDetail]?, _ error: String?)->()) {
-        Network.connectWithServer(url: url, httpRequest: .GET) { isSucceeded, data, error in
+        Network.connectWithServer(url: APIConstant.API.Products.apiUrl(), httpRequest: .GET) { isSucceeded, data, error in
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
@@ -51,7 +48,7 @@ class ProductsModel: NSObject {
     }
     
     func getSingleProductsModelData(id:String?, completionHandler: @escaping (_ isSucceeded: Bool, _ data: ProductsDetail?, _ error: String?)->()) {
-        var updatedURL = url
+        var updatedURL = APIConstant.API.Products.apiUrl()
         updatedURL = updatedURL + "/"
         updatedURL.append(id ?? "")
         print(updatedURL)
@@ -73,7 +70,7 @@ class ProductsModel: NSObject {
     }
     
     func searchProductsModelData(search: String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: [ProductsDetail]?, _ error: String?) -> ()) {
-        var updatedURL = url
+        var updatedURL = APIConstant.API.Products.apiUrl()
         updatedURL = updatedURL + "/search/"
         
         // query parameters
@@ -106,7 +103,7 @@ class ProductsModel: NSObject {
             "select": key
         ]
         
-        Network.connectWithServer(url: url, httpRequest: .GET, queryParameters: queryParameters) { isSucceeded, data, error in // Passing .GET as httpRequest
+        Network.connectWithServer(url: APIConstant.API.Products.apiUrl(), httpRequest: .GET, queryParameters: queryParameters) { isSucceeded, data, error in // Passing .GET as httpRequest
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
@@ -132,7 +129,7 @@ class ProductsModel: NSObject {
         ]
         
         // update url
-        var updatedURL = url
+        var updatedURL = APIConstant.API.Products.apiUrl()
         updatedURL = updatedURL + "/add"
         
         Network.connectWithServer(url: updatedURL, httpRequest: .POST, queryParameters: parameters) { isSucceeded, data, error in // Passing .POST as httpRequest
@@ -160,7 +157,7 @@ class ProductsModel: NSObject {
         ]
         
         // update url
-        var updatedURL = url
+        var updatedURL = APIConstant.API.Products.apiUrl()
         updatedURL = updatedURL + "/"
         updatedURL = updatedURL + "\(productID)"
         
@@ -184,7 +181,7 @@ class ProductsModel: NSObject {
     func deleteModelData(productID:Int, completionHandler: @escaping (_ isSucceeded: Bool, _ data: ProductsDetail?, _ error: String?) -> ()) {
         
         // update url
-        var updatedURL = url
+        var updatedURL = APIConstant.API.Products.apiUrl()
         updatedURL = updatedURL + "/"
         updatedURL = updatedURL + "\(productID)"
         

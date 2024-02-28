@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB06F9DD2B8CA580006C7790 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB06F9DB2B8CA580006C7790 /* ProductsViewController.swift */; };
-		FB06F9DE2B8CA580006C7790 /* ProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB06F9DC2B8CA580006C7790 /* ProductsViewController.xib */; };
 		FB2A9E2F2B8F3AAF00BFD26D /* AlerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2A9E2E2B8F3AAF00BFD26D /* AlerUser.swift */; };
 		FB37B38A2B8CA86B0023BB83 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37B3892B8CA86B0023BB83 /* ProductsModel.swift */; };
 		FB37B3912B8CAAC70023BB83 /* FetchAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37B38F2B8CAAC70023BB83 /* FetchAllTableViewCell.swift */; };
@@ -20,8 +18,6 @@
 		FB37B39C2B8DC5840023BB83 /* QueryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB37B39A2B8DC5840023BB83 /* QueryViewController.xib */; };
 		FB37B39F2B8DEE400023BB83 /* AddToAPIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37B39D2B8DEE400023BB83 /* AddToAPIViewController.swift */; };
 		FB37B3A02B8DEE400023BB83 /* AddToAPIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB37B39E2B8DEE400023BB83 /* AddToAPIViewController.xib */; };
-		FB37B3A32B8E08B00023BB83 /* UpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37B3A12B8E08B00023BB83 /* UpdateViewController.swift */; };
-		FB37B3A42B8E08B00023BB83 /* UpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB37B3A22B8E08B00023BB83 /* UpdateViewController.xib */; };
 		FBA1FB3E2B8F1B7F0036E436 /* PublicModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA1FB3D2B8F1B7F0036E436 /* PublicModel.swift */; };
 		FBA1FB422B8F1CA70036E436 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA1FB412B8F1CA70036E436 /* Network.swift */; };
 		FBA1FB442B8F1DC50036E436 /* APIConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBA1FB432B8F1DC50036E436 /* APIConstant.swift */; };
@@ -48,8 +44,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FB06F9DB2B8CA580006C7790 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
-		FB06F9DC2B8CA580006C7790 /* ProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsViewController.xib; sourceTree = "<group>"; };
 		FB2A9E2E2B8F3AAF00BFD26D /* AlerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlerUser.swift; sourceTree = "<group>"; };
 		FB37B3892B8CA86B0023BB83 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
 		FB37B38F2B8CAAC70023BB83 /* FetchAllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAllTableViewCell.swift; sourceTree = "<group>"; };
@@ -61,8 +55,6 @@
 		FB37B39A2B8DC5840023BB83 /* QueryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QueryViewController.xib; sourceTree = "<group>"; };
 		FB37B39D2B8DEE400023BB83 /* AddToAPIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToAPIViewController.swift; sourceTree = "<group>"; };
 		FB37B39E2B8DEE400023BB83 /* AddToAPIViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddToAPIViewController.xib; sourceTree = "<group>"; };
-		FB37B3A12B8E08B00023BB83 /* UpdateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateViewController.swift; sourceTree = "<group>"; };
-		FB37B3A22B8E08B00023BB83 /* UpdateViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateViewController.xib; sourceTree = "<group>"; };
 		FBA1FB3D2B8F1B7F0036E436 /* PublicModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicModel.swift; sourceTree = "<group>"; };
 		FBA1FB412B8F1CA70036E436 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		FBA1FB432B8F1DC50036E436 /* APIConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstant.swift; sourceTree = "<group>"; };
@@ -330,14 +322,12 @@
 		FBC104712B8CA7340007911F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				FB06F9DC2B8CA580006C7790 /* ProductsViewController.xib */,
 				FBC104742B8CA7730007911F /* FetchAllViewController.xib */,
 				FB37B38F2B8CAAC70023BB83 /* FetchAllTableViewCell.swift */,
 				FB37B3902B8CAAC70023BB83 /* FetchAllTableViewCell.xib */,
 				FB37B3962B8CBD050023BB83 /* DetailViewController.xib */,
 				FB37B39A2B8DC5840023BB83 /* QueryViewController.xib */,
 				FB37B39E2B8DEE400023BB83 /* AddToAPIViewController.xib */,
-				FB37B3A22B8E08B00023BB83 /* UpdateViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -345,12 +335,10 @@
 		FBC104722B8CA73E0007911F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				FB06F9DB2B8CA580006C7790 /* ProductsViewController.swift */,
 				FBC104732B8CA7730007911F /* FetchAllViewController.swift */,
 				FB37B3952B8CBD050023BB83 /* DetailViewController.swift */,
 				FB37B3992B8DC5840023BB83 /* QueryViewController.swift */,
 				FB37B39D2B8DEE400023BB83 /* AddToAPIViewController.swift */,
-				FB37B3A12B8E08B00023BB83 /* UpdateViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -420,10 +408,8 @@
 				FBB241712B87328B0055A4E5 /* Main.storyboard in Resources */,
 				FB37B3982B8CBD050023BB83 /* DetailViewController.xib in Resources */,
 				FBB241962B89E6790055A4E5 /* DogImageViewController.xib in Resources */,
-				FB37B3A42B8E08B00023BB83 /* UpdateViewController.xib in Resources */,
 				FBB2418C2B87653A0055A4E5 /* PublicDataDetailsViewController.xib in Resources */,
 				FB37B3922B8CAAC70023BB83 /* FetchAllTableViewCell.xib in Resources */,
-				FB06F9DE2B8CA580006C7790 /* ProductsViewController.xib in Resources */,
 				FBB241902B889DE50055A4E5 /* CatFactViewController.xib in Resources */,
 				FB37B3A02B8DEE400023BB83 /* AddToAPIViewController.xib in Resources */,
 				FBC104762B8CA7730007911F /* FetchAllViewController.xib in Resources */,
@@ -446,14 +432,12 @@
 				FBA1FB442B8F1DC50036E436 /* APIConstant.swift in Sources */,
 				FBA1FB4A2B8F21B50036E436 /* CatFactModel.swift in Sources */,
 				FB37B3942B8CBAD70023BB83 /* UIImage+Extenstion.swift in Sources */,
-				FB06F9DD2B8CA580006C7790 /* ProductsViewController.swift in Sources */,
 				FBB241872B8759DB0055A4E5 /* PublicDataTableViewCell.swift in Sources */,
 				FBA1FB502B8F23FD0036E436 /* DogImage.swift in Sources */,
 				FBB241922B889F070055A4E5 /* HomeViewController.swift in Sources */,
 				FBA1FB422B8F1CA70036E436 /* Network.swift in Sources */,
 				FB37B39B2B8DC5840023BB83 /* QueryViewController.swift in Sources */,
 				FB37B39F2B8DEE400023BB83 /* AddToAPIViewController.swift in Sources */,
-				FB37B3A32B8E08B00023BB83 /* UpdateViewController.swift in Sources */,
 				FBB2416A2B87328B0055A4E5 /* AppDelegate.swift in Sources */,
 				FBC104752B8CA7730007911F /* FetchAllViewController.swift in Sources */,
 				FBA1FB552B8F25190036E436 /* PublicDataViewController.swift in Sources */,

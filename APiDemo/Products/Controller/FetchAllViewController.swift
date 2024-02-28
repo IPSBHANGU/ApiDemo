@@ -9,6 +9,7 @@ import UIKit
 
 class FetchAllViewController: UIViewController {
 
+    @IBOutlet weak var dataSearchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     // call Model
@@ -19,11 +20,16 @@ class FetchAllViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupSearchBar()
         fetchDatafromAPI()
         setupTableView()
         // Do any additional setup after loading the view.
     }
 
+    func setupSearchBar(){
+        dataSearchBar.delegate = self
+    }
+    
     func fetchDatafromAPI() {
         model.convertProductsModelData() { isSucceeded, data, error in
             DispatchQueue.main.async {
@@ -53,6 +59,23 @@ class FetchAllViewController: UIViewController {
         activityIndicator.center = cgPoint
         activityIndicator.color = .black
         activityIndicator.startAnimating()
+    }
+}
+
+extension FetchAllViewController:UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        model.searchProductsModelData(search: searchBar.text ?? "") { isSucceeded, data, error in
+            DispatchQueue.main.async {
+                if isSucceeded {
+                    guard let data = data else {return}
+                    self.entriesArray.removeAll()
+                    self.entriesArray = data
+                    self.tableView.reloadData()
+                } else if let error = error {
+                    self.fetchDatafromAPI()
+                }
+            }
+        }
     }
 }
 

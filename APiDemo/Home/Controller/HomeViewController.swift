@@ -34,18 +34,33 @@ class HomeViewController: UIViewController {
     
     
     @IBAction func productsAction(_ sender: Any) {
-        let productsView = ProductsViewController()
-        navigationController?.pushViewController(productsView, animated: true)
+        let actionSheet = UIAlertController(title: "Products View", message: "Select Option from below for action to perform!", preferredStyle: .actionSheet)
+        
+        // fetchAll
+        actionSheet.addAction(UIAlertAction(title: "Fetch All", style: .default, handler: { (_) in
+            let fetchAllView = FetchAllViewController()
+            self.navigationController?.pushViewController(fetchAllView, animated: true)
+        }))
+        
+        // query
+        actionSheet.addAction(UIAlertAction(title: "Query", style: .default, handler: { (_) in
+            let queryView = QueryViewController()
+            self.navigationController?.pushViewController(queryView, animated: true)
+        }))
+        
+        // add
+        actionSheet.addAction(UIAlertAction(title: "Add", style: .default, handler: { (_) in
+            let addView = AddToAPIViewController()
+            self.navigationController?.pushViewController(addView, animated: true)
+        }))
+        
+        // Add cancel action
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        actionSheet.view.tintColor = .black
+        
+        // Present the action sheet
+        present(actionSheet, animated: true, completion: nil)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
