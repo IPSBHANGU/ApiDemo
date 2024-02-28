@@ -1,6 +1,6 @@
 import UIKit
 
-class DataDetailsViewController: UIViewController {
+class PublicDataDetailsViewController: UIViewController {
     
     var singleData: EntryObject?
     

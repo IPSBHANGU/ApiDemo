@@ -9,7 +9,7 @@ import UIKit
 
 class DogImageViewController: UIViewController {
 
-    let model = ApiModel()
+    let model = DogImage()
     let apiUrl = "https://dog.ceo/api/breeds/image/random"
     var dataFromAPI = [DogModel]()
     let image = UIImageView()
@@ -29,7 +29,7 @@ class DogImageViewController: UIViewController {
 
 
     func fetchDatafromAPI() {
-        model.convertDogModelData(url: apiUrl) { isSucceeded, data, error in
+        model.getDogData(url: apiUrl) { isSucceeded, data, error in
             DispatchQueue.main.async{
                 if isSucceeded {
                     guard let data = data else {return}

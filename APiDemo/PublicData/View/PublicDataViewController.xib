@@ -8,32 +8,31 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DogImageViewController" customModule="APiDemo" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PublicDataViewController" customModule="APiDemo" customModuleProvider="target">
             <connections>
-                <outlet property="imageView" destination="vpw-QV-XX5" id="jyW-o6-4mX"/>
+                <outlet property="apiTableView" destination="HZt-Lx-3eV" id="G7J-zi-ECp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vpw-QV-XX5">
-                    <rect key="frame" x="-62.666666666666657" y="167.66666666666663" width="500.33333333333326" height="332"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="332" id="8Ox-W6-ZZo"/>
-                        <constraint firstAttribute="width" constant="500" id="YqA-Ud-77x"/>
-                    </constraints>
-                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="HZt-Lx-3eV">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="vpw-QV-XX5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="GO9-Ak-Ugz"/>
-                <constraint firstItem="vpw-QV-XX5" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="Tro-cq-cSU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="HZt-Lx-3eV" secondAttribute="bottom" id="0QD-Xl-sqU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="HZt-Lx-3eV" secondAttribute="trailing" id="PYR-1t-XnN"/>
+                <constraint firstItem="HZt-Lx-3eV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="pq4-nG-aCZ"/>
+                <constraint firstItem="HZt-Lx-3eV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="t3C-Hf-xCL"/>
             </constraints>
-            <point key="canvasLocation" x="76" y="21"/>
+            <point key="canvasLocation" x="51" y="20"/>
         </view>
     </objects>
     <resources>

@@ -27,12 +27,11 @@ struct ProductsDetail:Codable {
 
 class ProductsModel: NSObject {
     
-    let homeModel = ApiModel()
     // url
     let url = "https://dummyjson.com/products"
     
     func convertProductsModelData(completionHandler: @escaping (_ isSucceeded: Bool, _ data: [ProductsDetail]?, _ error: String?)->()) {
-        homeModel.getData(url: url, httpRequest: httpRequest.GET) { isSucceeded, data, error in
+        Network.connectWithServer(url: url, httpRequest: .GET) { isSucceeded, data, error in
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
@@ -56,7 +55,7 @@ class ProductsModel: NSObject {
         updatedURL = updatedURL + "/"
         updatedURL.append(id ?? "")
         print(updatedURL)
-        homeModel.getData(url: updatedURL, httpRequest: httpRequest.GET) { isSucceeded, data, error in
+        Network.connectWithServer(url: updatedURL, httpRequest: httpRequest.GET) { isSucceeded, data, error in
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
@@ -80,7 +79,7 @@ class ProductsModel: NSObject {
         // query parameters
         let queryParameters = ["q": search]
         
-        homeModel.getData(url: updatedURL, httpRequest: .GET, queryParameters: queryParameters) { isSucceeded, data, error in // Passing .POST as httpRequest
+        Network.connectWithServer(url: updatedURL, httpRequest: .GET, queryParameters: queryParameters) { isSucceeded, data, error in // Passing .POST as httpRequest
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
@@ -107,7 +106,7 @@ class ProductsModel: NSObject {
             "select": key
         ]
         
-        homeModel.getData(url: url, httpRequest: .GET, queryParameters: queryParameters) { isSucceeded, data, error in // Passing .GET as httpRequest
+        Network.connectWithServer(url: url, httpRequest: .GET, queryParameters: queryParameters) { isSucceeded, data, error in // Passing .GET as httpRequest
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
@@ -136,7 +135,7 @@ class ProductsModel: NSObject {
         var updatedURL = url
         updatedURL = updatedURL + "/add"
         
-        homeModel.getData(url: updatedURL, httpRequest: .POST, queryParameters: parameters) { isSucceeded, data, error in // Passing .POST as httpRequest
+        Network.connectWithServer(url: updatedURL, httpRequest: .POST, queryParameters: parameters) { isSucceeded, data, error in // Passing .POST as httpRequest
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
@@ -165,7 +164,7 @@ class ProductsModel: NSObject {
         updatedURL = updatedURL + "/"
         updatedURL = updatedURL + "\(productID)"
         
-        homeModel.getData(url: updatedURL, httpRequest: .PUT, queryParameters: parameters) { isSucceeded, data, error in // Passing .PUT as httpRequest
+        Network.connectWithServer(url: updatedURL, httpRequest: .PUT, queryParameters: parameters) { isSucceeded, data, error in // Passing .PUT as httpRequest
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()
@@ -189,7 +188,7 @@ class ProductsModel: NSObject {
         updatedURL = updatedURL + "/"
         updatedURL = updatedURL + "\(productID)"
         
-        homeModel.getData(url: updatedURL, httpRequest: .DELETE) { isSucceeded, data, error in // Passing .DELETE as httpRequest
+        Network.connectWithServer(url: updatedURL, httpRequest: .DELETE) { isSucceeded, data, error in // Passing .DELETE as httpRequest
             if isSucceeded {
                 do {
                     let decoder = JSONDecoder()

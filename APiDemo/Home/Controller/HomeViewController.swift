@@ -15,6 +15,12 @@ class HomeViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func publicDataAction(_ sender: Any) {
+        let publicDataView = PublicDataViewController()
+        navigationController?.pushViewController(publicDataView, animated: true)
+    }
+    
     @IBAction func catFactAction(_ sender: Any) {
         let catFactView = CatFactViewController()
         navigationController?.pushViewController(catFactView, animated: true)

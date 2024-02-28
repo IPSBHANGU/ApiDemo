@@ -7,7 +7,7 @@
 
 import UIKit
 
-class apiTableViewCell: UITableViewCell {
+class PublicDataTableViewCell: UITableViewCell {
 
     @IBOutlet weak var idLable: UILabel!
     @IBOutlet weak var nameLable: UILabel!

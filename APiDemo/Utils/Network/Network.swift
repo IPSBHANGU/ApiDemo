@@ -1,29 +1,11 @@
-import UIKit
+//
+//  Network.swift
+//  APiDemo
+//
+//  Created by Inderpreet Singh on 28/02/24.
+//
 
-struct DataModel: Codable {
-    var count: Int?
-    var entries: [EntryObject]
-}
-
-struct EntryObject: Codable {
-    var API: String?
-    var Description: String?
-    var Auth: String?
-    var HTTPS: Bool?
-    var Cors: String?
-    var Link: String?
-    var Category: String
-}
-
-struct CatModel: Codable {
-    var fact: String?
-    var length: Int?
-}
-
-struct DogModel: Codable {
-    var message: String?
-    var status: String?
-}
+import Foundation
 
 enum httpRequest:String{
     case GET
@@ -32,8 +14,8 @@ enum httpRequest:String{
     case DELETE
 }
 
-class ApiModel: NSObject {
-    func getData(url: String, httpRequest: httpRequest, queryParameters: [String: String]? = nil, completionHandler: @escaping (_ isSucceeded: Bool, _ data: Data?, _ error: String?) -> ()) {
+class Network:NSObject {
+    static func connectWithServer(url: String, httpRequest: httpRequest, queryParameters: [String: String]? = nil, completionHandler: @escaping (_ isSucceeded: Bool, _ data: Data?, _ error: String?) -> ()) {
         guard var urlComponents = URLComponents(string: url) else {
             let emptyApiData = Data()
             completionHandler(false, emptyApiData, "Invalid URL")
@@ -112,52 +94,4 @@ class ApiModel: NSObject {
         task.resume()
     }
     
-    func convertPublicData(url: String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: [EntryObject]?, _ error: String?)->()) {
-        getData(url: url, httpRequest: httpRequest.GET) { isSucceeded, data, error in
-            if isSucceeded {
-                do {
-                    let decoder = JSONDecoder()
-                    let usableData = try decoder.decode(DataModel.self, from: data!)
-                    let entriesData = usableData.entries
-                    completionHandler(true, entriesData, nil)
-                } catch {
-                    completionHandler(false, nil, error.localizedDescription)
-                }
-            } else {
-                completionHandler(false, nil, error)
-            }
-        }
-    }
-    
-    func convertCatModelData(url: String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: [CatModel]?, _ error: String?)->()) {
-        getData(url: url, httpRequest: httpRequest.GET) { isSucceeded, data, error in
-            if isSucceeded {
-                do {
-                    let decoder = JSONDecoder()
-                    let usableData = try decoder.decode(CatModel.self, from: data!)
-                    completionHandler(true, [usableData], nil)
-                } catch {
-                    completionHandler(false, nil, error.localizedDescription)
-                }
-            } else {
-                completionHandler(false, nil, error)
-            }
-        }
-    }
-    
-    func convertDogModelData(url: String, completionHandler: @escaping (_ isSucceeded: Bool, _ data: [DogModel]?, _ error: String?)->()) {
-        getData(url: url, httpRequest: httpRequest.GET) { isSucceeded, data, error in
-            if isSucceeded {
-                do {
-                    let decoder = JSONDecoder()
-                    let usableData = try decoder.decode(DogModel.self, from: data!)
-                    completionHandler(true, [usableData], "")
-                } catch {
-                    completionHandler(false, nil, error.localizedDescription)
-                }
-            } else {
-                completionHandler(false, nil, error)
-            }
-        }
-    }
 }

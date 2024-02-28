@@ -2,7 +2,7 @@ import UIKit
 
 class CatFactViewController: UIViewController {
 
-    let model = ApiModel()
+    let model = CatFactModel()
     let apiUrl = "https://catfact.ninja/fact"
     var dataFromAPI = [CatModel]()
 
@@ -29,7 +29,7 @@ class CatFactViewController: UIViewController {
     }
 
     func fetchDatafromAPI() {
-        model.convertCatModelData(url: apiUrl) { isSucceeded, data, error in
+        model.getCatData(url: apiUrl) { isSucceeded, data, error in
             if isSucceeded {
                 guard let data = data else {return}
                 self.dataFromAPI = data
