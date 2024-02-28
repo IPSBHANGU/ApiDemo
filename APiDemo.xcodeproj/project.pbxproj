@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FB06F9DD2B8CA580006C7790 /* ProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB06F9DB2B8CA580006C7790 /* ProductsViewController.swift */; };
 		FB06F9DE2B8CA580006C7790 /* ProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB06F9DC2B8CA580006C7790 /* ProductsViewController.xib */; };
+		FB2A9E2F2B8F3AAF00BFD26D /* AlerUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2A9E2E2B8F3AAF00BFD26D /* AlerUser.swift */; };
 		FB37B38A2B8CA86B0023BB83 /* ProductsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37B3892B8CA86B0023BB83 /* ProductsModel.swift */; };
 		FB37B3912B8CAAC70023BB83 /* FetchAllTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB37B38F2B8CAAC70023BB83 /* FetchAllTableViewCell.swift */; };
 		FB37B3922B8CAAC70023BB83 /* FetchAllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB37B3902B8CAAC70023BB83 /* FetchAllTableViewCell.xib */; };
@@ -49,6 +50,7 @@
 /* Begin PBXFileReference section */
 		FB06F9DB2B8CA580006C7790 /* ProductsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsViewController.swift; sourceTree = "<group>"; };
 		FB06F9DC2B8CA580006C7790 /* ProductsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductsViewController.xib; sourceTree = "<group>"; };
+		FB2A9E2E2B8F3AAF00BFD26D /* AlerUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlerUser.swift; sourceTree = "<group>"; };
 		FB37B3892B8CA86B0023BB83 /* ProductsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsModel.swift; sourceTree = "<group>"; };
 		FB37B38F2B8CAAC70023BB83 /* FetchAllTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchAllTableViewCell.swift; sourceTree = "<group>"; };
 		FB37B3902B8CAAC70023BB83 /* FetchAllTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FetchAllTableViewCell.xib; sourceTree = "<group>"; };
@@ -99,6 +101,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB2A9E2D2B8F3A8D00BFD26D /* Alert User */ = {
+			isa = PBXGroup;
+			children = (
+				FB2A9E2E2B8F3AAF00BFD26D /* AlerUser.swift */,
+			);
+			path = "Alert User";
+			sourceTree = "<group>";
+		};
 		FB37B3882B8CA8440023BB83 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +158,7 @@
 		FBA1FB3F2B8F1C460036E436 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				FB2A9E2D2B8F3A8D00BFD26D /* Alert User */,
 				FBA1FB402B8F1C510036E436 /* Network */,
 			);
 			path = Utils;
@@ -430,6 +441,7 @@
 				FBA1FB3E2B8F1B7F0036E436 /* PublicModel.swift in Sources */,
 				FBB241952B89E6790055A4E5 /* DogImageViewController.swift in Sources */,
 				FB37B3912B8CAAC70023BB83 /* FetchAllTableViewCell.swift in Sources */,
+				FB2A9E2F2B8F3AAF00BFD26D /* AlerUser.swift in Sources */,
 				FBB2418F2B889DE50055A4E5 /* CatFactViewController.swift in Sources */,
 				FBA1FB442B8F1DC50036E436 /* APIConstant.swift in Sources */,
 				FBA1FB4A2B8F21B50036E436 /* CatFactModel.swift in Sources */,

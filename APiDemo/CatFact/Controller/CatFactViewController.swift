@@ -36,16 +36,8 @@ class CatFactViewController: UIViewController {
                 self.counter = self.counter + 1
                 self.fact = self.dataFromAPI[0].fact ?? ""
             } else if let error = error {
-                self.alertUser(title: "Error", message: "Error getting data from API: \(error)")
+                AlerUser.alertUser(viewController: self, title: "Error", message: "Error getting data from API: \(error)")
             }
         }
-    }
-    
-
-    func alertUser(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alert.addAction(okay)
-        self.present(alert, animated: true)
     }
 }

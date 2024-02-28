@@ -34,7 +34,7 @@ class PublicDataViewController: UIViewController {
                     self.activityIndicator.stopAnimating()
                     self.activityIndicator.removeFromSuperview()
                 } else if let error = error {
-                    self.alertUser(viewController: self, title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
+                    AlerUser.alertUser(viewController: self, title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
                 }
             }
         }
@@ -54,18 +54,6 @@ class PublicDataViewController: UIViewController {
         activityIndicator.color = .black
         activityIndicator.startAnimating()
     }
-    
-    
-    
-    // Singleton Classs
-    func alertUser(viewController:UIViewController, title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alert.addAction(okay)
-        viewController.present(alert, animated: true)
-    }
-    
 }
 
 extension PublicDataViewController:UITableViewDelegate, UITableViewDataSource {

@@ -36,17 +36,9 @@ class DogImageViewController: UIViewController {
                     self.dataFromAPI = data
                     self.imageView.downloaded(from: data[0].message!)
                 } else if let error = error {
-                    self.alertUser(title: "Error", message: "Error getting data from API: \(error)")
+                    AlerUser.alertUser(viewController: self, title: "Error", message: "Error getting data from API: \(error)")
                 }
             }
         }
     }
-    
-    func alertUser(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alert.addAction(okay)
-        self.present(alert, animated: true)
-    }
-
 }

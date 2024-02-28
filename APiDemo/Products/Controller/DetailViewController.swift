@@ -40,19 +40,12 @@ class DetailViewController: UIViewController {
         model.deleteModelData(productID: deleteID ?? 0) { isSucceeded, data, error in
             DispatchQueue.main.async {
                 if isSucceeded {
-                    self.alertUser(title: "Success", message: "Entry Delete Success!")
+                    AlerUser.alertUser(viewController: self, title: "Success", message: "Entry Delete Success!")
                     self.navigationController?.popViewController(animated: true)
                 } else if let error = error {
-                    self.alertUser(title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
+                    AlerUser.alertUser(viewController: self, title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
                 }
             }
         }
-    }
-    
-    func alertUser(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alert.addAction(okay)
-        self.present(alert, animated: true)
     }
 }

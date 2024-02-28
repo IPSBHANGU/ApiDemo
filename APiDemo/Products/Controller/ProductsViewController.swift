@@ -45,15 +45,6 @@ class ProductsViewController: UIViewController {
         let updateView = UpdateViewController()
         navigationController?.pushViewController(updateView, animated: true)
     }
-    
-    func alertUser(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alert.addAction(okay)
-        self.present(alert, animated: true)
-    }
-
 }
 
 extension ProductsViewController:UISearchBarDelegate {
@@ -66,7 +57,7 @@ extension ProductsViewController:UISearchBarDelegate {
                     detailView.productDetail = data
                     self.navigationController?.pushViewController(detailView, animated: true)
                 } else if let error = error {
-                    self.alertUser(title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
+                    AlerUser.alertUser(viewController: self, title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
                 }
             }
         }

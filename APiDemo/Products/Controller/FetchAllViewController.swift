@@ -34,7 +34,7 @@ class FetchAllViewController: UIViewController {
                     self.activityIndicator.stopAnimating()
                     self.activityIndicator.removeFromSuperview()
                 } else if let error = error {
-                    self.alertUser(title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
+                    AlerUser.alertUser(viewController: self, title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
                 }
             }
         }
@@ -54,15 +54,6 @@ class FetchAllViewController: UIViewController {
         activityIndicator.color = .black
         activityIndicator.startAnimating()
     }
-    
-    func alertUser(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        
-        let okay = UIAlertAction(title: "Okay", style: .default)
-        alert.addAction(okay)
-        self.present(alert, animated: true)
-    }
-
 }
 
 extension FetchAllViewController:UITableViewDelegate, UITableViewDataSource {
@@ -90,7 +81,7 @@ extension FetchAllViewController:UITableViewDelegate, UITableViewDataSource {
                     detailView.productDetail = [data]
                     self.navigationController?.pushViewController(detailView, animated: true)
                 } else if let error = error {
-                    self.alertUser(title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
+                    AlerUser.alertUser(viewController: self, title: "Error While Getting Data", message: "An error occurred while fetching data from the API: \(error)")
                 }
             }
         }
